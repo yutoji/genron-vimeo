@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import broadcastTitles from './data/broadcastTitles';
+import * as ui from 'semantic-ui-react'
 
 class App extends Component {
   render() {
@@ -20,6 +22,12 @@ class App extends Component {
             Learn React
           </a>
         </header>
+
+        <ui.Container text>
+        {broadcastTitles.map( (item, i) => (
+            <div key={i}>{item.title}</div>
+        ))}
+        </ui.Container>
       </div>
     );
   }
