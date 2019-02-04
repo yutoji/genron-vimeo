@@ -1,19 +1,19 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## What Did
-### Install react
+## Development History
+### Install React with typescript
   - Run:
 ```
-npx create-react-app my-app --typescript
+npx create-react-app genron-vimeo --typescript
 ```
 
-### semantic-ui
+### Installing Semantic UI
 - Run:
 ```
 yarn add semantic-ui-react semantic-ui-css
 ```
 
-- Import in index.tsx
+- Import it in index.tsx
 ```
 import 'semantic-ui-css/semantic.min.css'
 ```
