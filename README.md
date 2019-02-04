@@ -18,6 +18,11 @@ yarn add semantic-ui-react semantic-ui-css
 import 'semantic-ui-css/semantic.min.css'
 ```
 
+### Add Redux
+```
+yarn add react-dom
+yarn add @types/react-redux
+```
 
 ## Available Scripts
 
