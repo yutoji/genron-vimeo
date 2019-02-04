@@ -1,10 +1,23 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## What Did
-- install react
+### Install react
+  - Run:
 ```
 npx create-react-app my-app --typescript
 ```
+
+### semantic-ui
+- Run:
+```
+yarn add semantic-ui-react semantic-ui-css
+```
+
+- Import in index.tsx
+```
+import 'semantic-ui-css/semantic.min.css'
+```
+
 
 ## Available Scripts
 
