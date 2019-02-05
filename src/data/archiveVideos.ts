@@ -9,6 +9,7 @@ const archiveVideos: ArchiveVideo[] =
     dateString: row.date,
     date:       new Date(row.date),
     rawJson:    row,
- }));
+ }))
+ .sort((a, b) => a.date.getSeconds() - b.date.getSeconds())
 
 export default archiveVideos;
