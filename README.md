@@ -2,27 +2,28 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Development History
 ### Install React with typescript
-  - Run:
-```
-npx create-react-app genron-vimeo --typescript
-```
+- Run:
+    ```
+    npx create-react-app genron-vimeo --typescript
+    ```
 
 ### Installing Semantic UI
 - Run:
-```
-yarn add semantic-ui-react semantic-ui-css
-```
+    ```
+    yarn add semantic-ui-react semantic-ui-css
+    ```
 
 - Import it in index.tsx
-```
-import 'semantic-ui-css/semantic.min.css'
-```
+    ```
+    import 'semantic-ui-css/semantic.min.css'
+    ```
 
 ### Add Redux
-```
-yarn add react-dom
-yarn add @types/react-redux
-```
+- Run:
+    ```
+    yarn add react-dom
+    yarn add @types/react-redux
+    ```
 
 ## Available Scripts
 
