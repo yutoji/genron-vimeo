@@ -2,7 +2,7 @@ export interface Cast {
     name: string
 }
 
-export default interface BroadcastTitle {
+export default interface ArchiveVideo {
     title: string
     casts: Cast[]
     dateString: string
