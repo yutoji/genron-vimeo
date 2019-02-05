@@ -2,7 +2,7 @@ export interface Cast {
     name: string
 }
 
-export default interface ArchiveVideo {
+interface ArchiveVideo {
     title: string
     casts: Cast[]
     dateString: string
@@ -11,3 +11,4 @@ export default interface ArchiveVideo {
     rawJson?: any
 }
 
+export default ArchiveVideo
