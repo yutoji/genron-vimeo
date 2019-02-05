@@ -1,9 +1,8 @@
-import BroadcastTitle, { Cast } from "../domain/BroadcastTitle";
+import ArchiveVideo, { Cast } from "../domain/ArchiveVideo";
 import json from "./titles-data";
 
-
-const broadcastTitles: BroadcastTitle[] =
- json.map((row): BroadcastTitle => ({
+const archiveVideos: ArchiveVideo[] =
+ json.map((row): ArchiveVideo => ({
     title:      row.title,
     casts:      row.members.map( member => ({ name: member }) ),
     url:        row.url,
@@ -12,4 +11,4 @@ const broadcastTitles: BroadcastTitle[] =
     rawJson:    row,
  }));
 
-export default broadcastTitles;
+export default archiveVideos;

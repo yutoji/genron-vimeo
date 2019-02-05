@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import broadcastTitles from './data/broadcastTitles';
+import archiveVideos from './data/archiveVideos';
 import * as ui from 'semantic-ui-react'
+import ArchiveVideo from './domain/ArchiveVideo';
+
+const videos: ArchiveVideo[] = archiveVideos
 
 class App extends Component {
   render() {
@@ -24,10 +27,10 @@ class App extends Component {
         </header>
 
         <ui.Container text>
-        {broadcastTitles.map( (item, i) => (
+        {videos.map( (video, i) => (
         <>
-            <div key={i}>{item.title}</div>
-            {item.casts.map((cast, j) => (
+            <div key={i}>{video.title}</div>
+            {video.casts.map((cast, j) => (
               <span key={i.toString() + "-" + j.toString()}>
               {cast.name}, 
               </span>
