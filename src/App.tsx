@@ -25,7 +25,14 @@ class App extends Component {
 
         <ui.Container text>
         {broadcastTitles.map( (item, i) => (
+        <>
             <div key={i}>{item.title}</div>
+            {item.casts.map((cast, j) => (
+              <span key={i.toString() + "-" + j.toString()}>
+              {cast.name}, 
+              </span>
+            ))}
+        </>
         ))}
         </ui.Container>
       </div>
