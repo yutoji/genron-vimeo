@@ -4,11 +4,15 @@ import { Item, Icon, Button, Label } from 'semantic-ui-react';
 
 
 export interface VideoItemProps {
-    video: ArchiveVideo
+    video: ArchiveVideo;
+    tapCast?: () => void;
+    tapVimeo?: () => void;
 }
 
 const VideoItem: React.FunctionComponent<VideoItemProps> = ({
-    video
+    video,
+    tapCast = () => {},
+    tapVimeo = () => {},
 }) => (
     <Item>
         <Item.Content>
@@ -34,4 +38,4 @@ const VideoItem: React.FunctionComponent<VideoItemProps> = ({
     </Item>
 );
 
-export default VideoItem
+export default VideoItem;
