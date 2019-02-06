@@ -1,18 +1,18 @@
 import * as React from 'react'
-import ArchiveVideo from '../domain/ArchiveVideo';
+import ArchiveVideo, { Cast } from '../domain/ArchiveVideo';
 import { Item, Icon, Button, Label } from 'semantic-ui-react';
 
 
 export interface VideoItemProps {
     video: ArchiveVideo;
-    tapCast?: () => void;
-    tapVimeo?: () => void;
+    tapCast?: (cast: Cast) => void;
+    tapVimeo?: (video: ArchiveVideo) => void;
 }
 
 const VideoItem: React.FunctionComponent<VideoItemProps> = ({
     video,
-    tapCast = () => {},
-    tapVimeo = () => {},
+    tapCast = (cast: Cast) => {},
+    tapVimeo = (video: ArchiveVideo) => {},
 }) => (
     <Item>
         <Item.Content>
@@ -24,12 +24,12 @@ const VideoItem: React.FunctionComponent<VideoItemProps> = ({
             <Item.Description>{video.title}</Item.Description>
 
             <Item.Extra>
-                <Button primary floated='right'>
+                <Button primary floated='right' onClick={() => tapVimeo(video)}>
                     <Icon name="vimeo" />
                     Vimeo
                 </Button>
                 {video.casts.reverse().map((cast, i) => (
-                    <Button size="mini" key={i} floated="right">
+                    <Button size="mini" key={i} floated="right" onClick={() => tapCast(cast)}>
                         {cast.name}
                     </Button>
                 ))}

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import archiveVideos from './data/archiveVideos';
 import ArchiveVideo from './domain/ArchiveVideo';
-import VideoItem from './components/VideoItem';
+import VideoItem from './containers/VideoItem';
 import { Item, Container } from 'semantic-ui-react';
 
 const videos: ArchiveVideo[] = archiveVideos
