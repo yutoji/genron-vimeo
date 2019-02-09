@@ -4,12 +4,16 @@ import './index.css';
 import 'semantic-ui-css/semantic.min.css'
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
 import appReducer, { initialState } from './reducer';
 import { Provider } from 'react-redux';
-import archiveVideos from './data/archiveVideos';
+import thunkMiddleware from 'redux-thunk';
 
-const store = createStore(appReducer as any, initialState as any);
+const store = createStore(
+    appReducer as any,
+    initialState as any,
+    applyMiddleware(thunkMiddleware),
+);
 
 ReactDOM.render(
     <Provider store={store}>
