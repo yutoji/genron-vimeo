@@ -34,3 +34,8 @@
     transform: rotate(360deg);
   }
 }
+
+
+.cast-name-hilight {
+  background-color: khaki;
+}

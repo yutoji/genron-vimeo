@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import VideoItem, { VideoItemProps } from '../components/VideoItem';
 
 interface StateProps {
+    hiligightCast?: Cast
 }
 
 interface DispatchProps {
@@ -15,7 +16,7 @@ interface DispatchProps {
 }
 
 const mapStateToProps = (state: AppState): StateProps => ({
-
+    hiligightCast: state.selectedCast,
 })
 
 const mapDispatchToProps = (dispatch: Dispatch<VideoAction>): DispatchProps => 
@@ -29,6 +30,6 @@ const mapDispatchToProps = (dispatch: Dispatch<VideoAction>): DispatchProps =>
     )
 
 export default connect<StateProps, DispatchProps, VideoItemProps>(
-    mapStateToProps,
+    mapStateToProps as any,
     mapDispatchToProps,
 )(VideoItem);

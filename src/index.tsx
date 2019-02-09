@@ -7,6 +7,7 @@ import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import appReducer, { initialState } from './reducer';
 import { Provider } from 'react-redux';
+import archiveVideos from './data/archiveVideos';
 
 const store = createStore(appReducer as any, initialState as any);
 
