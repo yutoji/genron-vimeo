@@ -11,7 +11,11 @@ const getUniqueSortedCasts = (casts: Cast[]): Cast[] => {
     let pairs: Pair[] = []
     castMap.forEach(pair => {pairs.push(pair)});
     const pairsSorted = pairs.sort((a, b) => a.count - b.count).reverse();
-    return pairsSorted.map(pair => pair.cast)
+    return pairsSorted.map(pair => {
+        const cast = pair.cast
+        cast.numVideos = pair.count
+        return cast;
+    })
 };
 
 export default getUniqueSortedCasts;

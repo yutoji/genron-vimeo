@@ -1,5 +1,6 @@
 export interface Cast {
-    name: string
+    name: string,
+    numVideos?: number,
 };
 
 interface ArchiveVideo {

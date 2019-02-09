@@ -27,7 +27,7 @@ const CastTagList: React.FunctionComponent<CastTagListProps> = ({
         {casts.map((cast, i) => (
             <Button size="mini" key={i} onClick={() => tapCast(cast)} 
                 color={selectedCast === cast && "yellow" || undefined }>
-                {cast.name}
+                {cast.name}{cast.numVideos && (" (" + cast.numVideos + ")")}
             </Button>
         ))}
         {numMoreShowable > 0 &&
