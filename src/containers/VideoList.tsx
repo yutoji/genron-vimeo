@@ -1,7 +1,7 @@
 import ArchiveVideo, { Cast } from '../domain/ArchiveVideo';
 import { AppState } from '../reducer';
 import { Dispatch } from 'react';
-import { VideoAction } from '../actions/video';
+import { VideoAction, showAllVideo } from '../actions/video';
 import { bindActionCreators } from 'redux';
 import VideoList, { VideoListProps } from '../components/VideoList';
 import { connect } from 'react-redux';
@@ -12,6 +12,7 @@ interface StateProps {
 }
 
 interface DispatchProps {
+    tapCastClose: () => void;
 }
 
 const mapStateToProps = (state: AppState): StateProps => ({
@@ -22,6 +23,7 @@ const mapStateToProps = (state: AppState): StateProps => ({
 const mapDispatchToProps = (dispatch: Dispatch<VideoAction>): DispatchProps => 
     bindActionCreators(
         {
+            tapCastClose: showAllVideo
         },
         dispatch as any
     );

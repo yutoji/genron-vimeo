@@ -39,3 +39,7 @@
 .cast-name-hilight {
   background-color: khaki;
 }
+
+.cursor-pointer {
+  cursor: pointer;
+}

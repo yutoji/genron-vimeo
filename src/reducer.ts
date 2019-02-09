@@ -28,6 +28,12 @@ const appReducer = (state: AppState, action: Action): AppState => {
                 ) || state.allVideos,
                 selectedCast,
             };
+        case VideoActionType.SHOW_ALL_VIDEO:
+            return {
+                ...state,
+                videos: state.allVideos,
+                selectedCast: undefined,
+            }
         case VideoActionType.OPEN_VIDEO:
             return state;
     }
