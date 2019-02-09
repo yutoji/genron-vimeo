@@ -1,6 +1,6 @@
 export interface Cast {
     name: string
-}
+};
 
 interface ArchiveVideo {
     title: string
@@ -9,6 +9,6 @@ interface ArchiveVideo {
     url: string
     date: Date
     rawJson?: any
-}
+};
 
-export default ArchiveVideo
+export default ArchiveVideo;

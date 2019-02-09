@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import archiveVideos from './data/archiveVideos';
 import ArchiveVideo from './domain/ArchiveVideo';
-import { Item, Container } from 'semantic-ui-react';
+import { Item, Container, Header, Icon } from 'semantic-ui-react';
 import VideoList from './containers/VideoList';
+import CastTagList from './containers/CastTagList';
 
 const videos: ArchiveVideo[] = archiveVideos
 
@@ -12,6 +13,11 @@ class App extends Component {
     return (
       <div className="App">
         <Container text>
+          <Header as="h1">
+            ゲンロン Vimeo 動画
+          </Header>
+          <CastTagList />
+          <div id="video-select-ref"></div>
           <VideoList />
         </Container>
       </div>

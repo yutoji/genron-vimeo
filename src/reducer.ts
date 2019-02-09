@@ -1,18 +1,26 @@
 import ArchiveVideo, { Cast } from "./domain/ArchiveVideo";
-import { VideoAction, VideoActionType, selectCast } from "./actions/video";
+import { VideoAction, VideoActionType } from "./actions/video";
 import archiveVideos from "./data/archiveVideos";
+import getUniqueSortedCasts from "./domain/getUniqueSortedCasts";
 
 export interface AppState {
-    allVideos: ArchiveVideo[],
-    videos: ArchiveVideo[],  
-    selectedCast?: Cast,
+    allVideos: ArchiveVideo[];
+    allCasts: Cast[];
+    videos: ArchiveVideo[];
+    showingCastTags: Cast[];
+    selectedCast?: Cast;
 }
 
 type Action = VideoAction
 
+const allCasts = getUniqueSortedCasts(archiveVideos.flatMap(video => video.casts));
+const DEFAULT_SHOWING_CAST_TAGS = 22;
+
 export const initialState = {
     allVideos: archiveVideos,
+    allCasts: allCasts,
     videos: archiveVideos,
+    showingCastTags: allCasts.slice(0, DEFAULT_SHOWING_CAST_TAGS),
     selectedCast: undefined,
 }
 
@@ -36,6 +44,18 @@ const appReducer = (state: AppState, action: Action): AppState => {
             }
         case VideoActionType.OPEN_VIDEO:
             return state;
+        case VideoActionType.SHOW_ALL_CAST_TAGS:
+            return {
+                ...state,
+                showingCastTags: state.allCasts,
+            };
+        case VideoActionType.DEFAULT_CAST_TAGS:
+            return {
+                ...state,
+                videos: state.allVideos,
+                showingCastTags: state.allCasts.slice(0, DEFAULT_SHOWING_CAST_TAGS),
+                selectedCast: undefined,
+            };
     }
     return state
 };

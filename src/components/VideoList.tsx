@@ -12,7 +12,7 @@ export interface VideoListProps {
 const VideoList: React.FunctionComponent<VideoListProps> = ({
     videos = [],
     selectedCast = undefined,
-    tapCastClose = () => {}
+    tapCastClose = () => {},
 }) => (
     <>
         <Header as='h2' dividing>

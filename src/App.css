@@ -43,3 +43,12 @@
 .cursor-pointer {
   cursor: pointer;
 }
+
+
+.App {
+  font-family: "游明朝体","YuMincho","Yu Mincho","ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","ＭＳ 明朝","MS Mincho",serif;
+}
+
+.App .ui.button {
+  margin: 0 .25em .25em 0;
+}
