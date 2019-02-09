@@ -4,7 +4,7 @@ import CastTagList, { CastTagListProps } from "../components/CastTagList";
 import { AppState } from "../reducer";
 import { bindActionCreators } from "redux";
 import { Dispatch } from "react";
-import { selectCast, VideoAction, showAllCastTags, showAllVideo, defaultCastTags } from "../actions/video";
+import { selectCast, VideoAction, showAllCastTags, showAllVideo, defaultCastTags, defaultCastTagsAndResetSelected } from "../actions/video";
 
 
 interface StateProps {
@@ -16,7 +16,8 @@ interface StateProps {
 interface DispatchProps {
     tapCast: (cast: Cast) => void;
     tapShowMore: () => void;
-    tapAllTag: () => void;
+    tapDefault: () => void;
+    tapMinimize: () => void;
 }
 
 export default connect<StateProps, DispatchProps, CastTagListProps>(
@@ -31,6 +32,7 @@ export default connect<StateProps, DispatchProps, CastTagListProps>(
         bindActionCreators({
             tapCast: cast => selectCast(cast),
             tapShowMore: showAllCastTags,
-            tapAllTag: defaultCastTags,
+            tapDefault: defaultCastTagsAndResetSelected,
+            tapMinimize: defaultCastTags,
         }, dispatch as any)
 )(CastTagList);

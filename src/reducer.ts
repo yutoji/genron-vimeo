@@ -52,9 +52,14 @@ const appReducer = (state: AppState, action: Action): AppState => {
         case VideoActionType.DEFAULT_CAST_TAGS:
             return {
                 ...state,
-                videos: state.allVideos,
                 showingCastTags: state.allCasts.slice(0, DEFAULT_SHOWING_CAST_TAGS),
+            };
+        case VideoActionType.DEFAULT_CAST_TAGS_AND_RESET_SELECTED:
+            return {
+                ...state,
+                videos: state.allVideos,
                 selectedCast: undefined,
+                showingCastTags: state.allCasts.slice(0, DEFAULT_SHOWING_CAST_TAGS),
             };
     }
     return state

@@ -8,7 +8,8 @@ export interface CastTagListProps {
     numMoreShowable?: number;
     tapCast?: (cast: Cast) => void;
     tapShowMore?: () => void;
-    tapAllTag?: () => void;
+    tapDefault?: () => void;
+    tapMinimize?: () => void;
 }
 
 const CastTagList: React.FunctionComponent<CastTagListProps> = ({
@@ -17,11 +18,12 @@ const CastTagList: React.FunctionComponent<CastTagListProps> = ({
     numMoreShowable = 0,
     tapCast = (cast: Cast) => {},
     tapShowMore = () => {},
-    tapAllTag = () => {},
+    tapDefault = () => {},
+    tapMinimize = () => {},
 }) => (<>
     <Segment piled>
         <Icon name="users" />登壇者一覧<br />
-        <Button size="mini" icon="globe" onClick={tapAllTag} />
+        <Button size="mini" icon="globe" onClick={tapDefault} />
         {casts.map((cast, i) => (
             <Button size="mini" key={i} onClick={() => tapCast(cast)} 
                 color={selectedCast === cast && "yellow" || undefined }>
@@ -29,11 +31,12 @@ const CastTagList: React.FunctionComponent<CastTagListProps> = ({
             </Button>
         ))}
         {numMoreShowable > 0 &&
-            <Button size="mini" color="grey" onClick={tapShowMore}>
+            (<Button size="mini" color="grey" onClick={tapShowMore}>
                 Show More...（{numMoreShowable}）
-            </Button>
+            </Button>)
+        ||
+            (<Button size="mini" color="grey" onClick={tapMinimize} icon="close" />)
         }
-
     </Segment>
 </>);
 
