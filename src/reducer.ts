@@ -33,10 +33,14 @@ export const changeInitialStateWithURI = (state: AppState): AppState => {
     const decodedHash = decodeURI(hash)
     const isTargetCast = (cast: Cast) => (cast.name == hash || cast.name == decodedHash)
     const cast = state.allCasts.find(eachCast => isTargetCast(eachCast))
+    logger.log("cast=" + (cast && cast.name || "nop") + ", hash=" + hash + ", decodedHash=" + decodedHash + ", decodedHash.length=" + decodedHash.length)
     if (cast != null) {
+        logger.log("    initialState.selectedCast=cast")
+        const videos = state.allVideos.filter(video => video.casts.some(c => c.name == cast.name))
         return {
             ...state,
-            selectedCast: cast
+            videos: videos,
+            selectedCast: cast,
         }
     }
     return state
