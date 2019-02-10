@@ -10,6 +10,7 @@ const archiveVideos: ArchiveVideo[] =
     date:       new Date(row.date),
     rawJson:    row,
  }))
- .sort((a, b) => a.date.getSeconds() - b.date.getSeconds())
+ .sort((a, b) => a.date.getTime() - b.date.getTime())
+ .reverse() // 最新順
 
 export default archiveVideos;
