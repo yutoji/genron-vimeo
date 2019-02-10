@@ -3,17 +3,6 @@ const json =
 
 [
 	{
-		"title": "【ゲンロンカフェ＠VOLVO STUDIO AOYAMA#7】1998年から2038年へ──消費と都市と交通から日本の20年前と20年後を考える",
-		"members": [
-			"宇野維正",
-			"速水健朗",
-			"東浩紀"
-		],
-		"date": "2018/05/30",
-		"url": "https://vimeo.com/ondemand/genron20180530",
-		"rawString": "【ゲンロンカフェ＠VOLVO STUDIO AOYAMA#7】1998年から2038年へ──消費と都市と交通から日本の20年前と20年後を考える\t宇野維正、速水健朗、東浩紀\t2018/05/30\thttps://vimeo.com/ondemand/genron20180530"
-	},
-	{
 		"title": "「7年後のいまをどう伝えるかーー『原発事故と「食」』（中公新書）刊行記念」",
 		"members": [
 			"五十嵐泰正",
