@@ -12,6 +12,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <img src="/logo/twitter_header_photo_1.png" className="header-logo" />
         <Container text>
           <Header as="h1">
             <a href="/">ゲンロンVimeo動画一覧</a>
