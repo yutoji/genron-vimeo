@@ -18,6 +18,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
     import 'semantic-ui-css/semantic.min.css'
     ```
 
+- Add ReactRouter
+    ```
+    yarn add react-router react-router-dom
+    yarn add -D @types/react-router @types/react-router-dom
+    ```
+
 ### Add Redux
 - Run:
     ```
