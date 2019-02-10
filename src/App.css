@@ -49,6 +49,11 @@
   font-family: "游明朝体","YuMincho","Yu Mincho","ヒラギノ明朝 Pro W3","Hiragino Mincho Pro","ＭＳ 明朝","MS Mincho",serif;
 }
 
+.App h1 a {
+  color: rgba(0,0,0,.87);
+  border-bottom: dashed 1px #ccc;
+}
+
 .App .ui.button {
   margin: 0 .25em .25em 0;
 }

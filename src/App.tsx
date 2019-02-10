@@ -14,7 +14,7 @@ class App extends Component {
       <div className="App">
         <Container text>
           <Header as="h1">
-          ゲンロンVimeo動画一覧
+            <a href="/">ゲンロンVimeo動画一覧</a>
           </Header>
           <CastTagList />
           <div id="video-select-ref"></div>
