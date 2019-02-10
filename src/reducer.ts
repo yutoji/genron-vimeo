@@ -1,7 +1,9 @@
 import ArchiveVideo, { Cast } from "./domain/ArchiveVideo";
-import { VideoAction, VideoActionType } from "./actions/video";
+import { VideoAction, VideoActionType, selectCast, showAllVideo } from "./actions/video";
 import archiveVideos from "./data/archiveVideos";
 import getUniqueSortedCasts from "./domain/getUniqueSortedCasts";
+import logger from "./logger";
+import { Dispatch } from "react";
 
 export interface AppState {
     allVideos: ArchiveVideo[];
@@ -24,8 +26,60 @@ export const initialState = {
     selectedCast: undefined,
 }
 
+export const changeInitialStateWithURI = (state: AppState): AppState => {
+    const hash = location.pathname.slice(1)
+    const decodedHash = decodeURI(hash)
+    const isTargetCast = (cast: Cast) => (cast.name == hash || cast.name == decodedHash)
+    const cast = state.allCasts.find(eachCast => isTargetCast(eachCast))
+    if (cast != null) {
+        return {
+            ...state,
+            selectedCast: cast
+        }
+    }
+    return state
+}
+
+const pushStateWithPath = (path: string) => {
+    if (path == location.pathname) { return }
+    if (window.history && window.history.pushState) {
+        logger.log("pushState: " + path)
+        window.history.pushState({}, "", path)
+    }
+}
+
+export const changeURIWithState = (state: AppState) =>  {
+    const hash = state.selectedCast && state.selectedCast.name || "";
+    pushStateWithPath("/" + hash)
+}
+
+export const changeStateWithPathIfNeeded = (state: AppState, dispatch: Dispatch<VideoAction>) => {
+    logger.log("changeStateWithPathIfNeeded.")
+    const castName = location.pathname.slice(1)
+    const decodedCastName = decodeURI(castName)
+    if (castName == "") {
+        if (state.selectedCast == null) {
+            return
+        }
+        logger.log("    dispatch to selectedCast=undefined.")
+        return dispatch(showAllVideo())
+    }
+    const stateCastName = state.selectedCast && state.selectedCast.name || "";
+    if ([castName, decodedCastName].some(pathName => pathName == stateCastName)) {
+        return
+    }
+    const nextSelectedCast = state.allCasts.find((c) => (
+        c.name == castName || c.name == decodedCastName)
+    ) || undefined
+    logger.log("    dispatch to selectedCast=" + `${nextSelectedCast}`);
+    return dispatch(nextSelectedCast &&
+        selectCast(nextSelectedCast) ||
+        showAllVideo()
+    )
+}
+
 const appReducer = (state: AppState, action: Action): AppState => {
-    console.log(action.type);
+    logger.log(action.type);
     switch (action.type) {
         case VideoActionType.SELECT_CAST:
             const selectedCast = action.cast;
