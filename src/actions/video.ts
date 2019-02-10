@@ -8,6 +8,7 @@ export enum VideoActionType {
     SHOW_ALL_CAST_TAGS = "SHOW_ALL_CAST_TAGS",
     DEFAULT_CAST_TAGS = "OMMIT_CAST_TAGS",
     DEFAULT_CAST_TAGS_AND_RESET_SELECTED = "DEFAULT_CAST_TAGS_AND_RESET_SELECTED",
+    SHOW_MORE_VIDEOS = "SHOW_MORE_VIDEOS",
 }
 
 export interface VideoAction {
@@ -49,4 +50,8 @@ export const defaultCastTags = () => ({
 
 export const defaultCastTagsAndResetSelected = () => ({
     type: VideoActionType.DEFAULT_CAST_TAGS_AND_RESET_SELECTED,
+})
+
+export const showMoreVideos = () => ({
+    type: VideoActionType.SHOW_MORE_VIDEOS,
 })

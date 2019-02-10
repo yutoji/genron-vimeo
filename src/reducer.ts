@@ -11,6 +11,7 @@ export interface AppState {
     videos: ArchiveVideo[];
     showingCastTags: Cast[];
     selectedCast?: Cast;
+    isOmmitingVideos: boolean;
 }
 
 type Action = VideoAction
@@ -24,6 +25,7 @@ export const initialState = {
     videos: archiveVideos,
     showingCastTags: allCasts.slice(0, DEFAULT_SHOWING_CAST_TAGS),
     selectedCast: undefined,
+    isOmmitingVideos: true,
 }
 
 export const changeInitialStateWithURI = (state: AppState): AppState => {
@@ -78,6 +80,13 @@ export const changeStateWithPathIfNeeded = (state: AppState, dispatch: Dispatch<
     )
 }
 
+const defaultStateForAllVideos = (state: AppState): AppState => ({
+    ...state,
+    videos: state.allVideos,
+    selectedCast: undefined,
+    isOmmitingVideos: true,    
+})
+
 const appReducer = (state: AppState, action: Action): AppState => {
     logger.log(action.type);
     switch (action.type) {
@@ -89,12 +98,11 @@ const appReducer = (state: AppState, action: Action): AppState => {
                     (video) => video.casts.some(cast => cast.name == selectedCast.name)
                 ) || state.allVideos,
                 selectedCast,
+                isOmmitingVideos: true,
             };
         case VideoActionType.SHOW_ALL_VIDEO:
             return {
-                ...state,
-                videos: state.allVideos,
-                selectedCast: undefined,
+                ...defaultStateForAllVideos(state),
             }
         case VideoActionType.OPEN_VIDEO:
             return state;
@@ -110,10 +118,13 @@ const appReducer = (state: AppState, action: Action): AppState => {
             };
         case VideoActionType.DEFAULT_CAST_TAGS_AND_RESET_SELECTED:
             return {
-                ...state,
-                videos: state.allVideos,
-                selectedCast: undefined,
+                ...defaultStateForAllVideos(state),
                 showingCastTags: state.allCasts.slice(0, DEFAULT_SHOWING_CAST_TAGS),
+            };
+        case VideoActionType.SHOW_MORE_VIDEOS:
+            return {
+                ...state,
+                isOmmitingVideos: false,
             };
     }
     return state
