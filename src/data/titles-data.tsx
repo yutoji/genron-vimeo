@@ -1,7 +1,29 @@
-/* Made at Mon Feb 11 2019 01:15:07 GMT+0900 (GMT+09:00) */
+/* Made at Tue Feb 19 2019 17:28:07 GMT+0900 (GMT+09:00) */
 const json = 
 
 [
+	{
+		"title": "「＜俺による永久革命＞の復活ーー『平岡正明論』刊行記念イベント」",
+		"members": [
+			"大谷能生",
+			"速水健朗"
+		],
+		"date": "2018/07/01",
+		"url": "https://vimeo.com/ondemand/genron20180701",
+		"rawString": "「＜俺による永久革命＞の復活ーー『平岡正明論』刊行記念イベント」\t大谷能生、速水健朗\t2018/07/01\thttps://vimeo.com/ondemand/genron20180701"
+	},
+	{
+		"title": "「現代音楽」に未来はあるか？──『やさしい現代音楽の作曲法』刊行記念イベント",
+		"members": [
+			"川島素晴",
+			"渋谷慶一郎",
+			"新垣隆",
+			"木石岳"
+		],
+		"date": "2018/07/04",
+		"url": "https://vimeo.com/ondemand/genron20180704",
+		"rawString": "「現代音楽」に未来はあるか？──『やさしい現代音楽の作曲法』刊行記念イベント\t川島素晴、渋谷慶一郎、新垣隆、木石岳\t2018/07/04\thttps://vimeo.com/ondemand/genron20180704"
+	},
 	{
 		"title": "【ゲンロンカフェ＠VOLVO STUDIO AOYAMA#7】1998年から2038年へ──消費と都市と交通から日本の20年前と20年後を考える",
 		"members": [
